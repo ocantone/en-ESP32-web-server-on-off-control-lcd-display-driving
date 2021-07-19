@@ -24,8 +24,11 @@ LiquidCrystal_PCF8574 lcd(0x27); // set the LCD address to 0x27 for a 16 chars a
 
 
 // Replace the X's with your network credentials
-const char* ssid = "XXXXXXXXXXXXX";
-const char* password = "XXXXXXXXXXXXX";
+//const char* ssid = "XXXXXXXXXXXXX";
+//const char* password = "XXXXXXXXXXXXX";
+
+const char* ssid = "La de abajo";
+const char* password = "06012405ep";
 
 // Set web server port number to 80
 WiFiServer server(80);
@@ -181,14 +184,16 @@ void loop(){
 
             // Web Page Heading
             client.println("<body><h1>ESP32 Web Server</h1>");
-            client.println("<p>Adapted by Osvaldo Cantone <a href=http://www.cantone.com.ar/wordpress/esp32-web-server-relay-control-lcd-i2c-display/>tecteach.net</a> </p>");
-            
+            client.println("<p>Adapted by Osvaldo Cantone <a href=https://tecteach.net/>tecteach.net</a> </p>");
+            client.println("<p>Get code on GitHub <a href=https://github.com/ocantone/en-ESP32-web-server-on-off-control-lcd-display-driving> here</a> </p>");
             // Display current state, and ON/OFF buttons for GPIO 26  
             client.println("<p>Relay 1 (GPIO 15) - State: " + relay1State + "</p>");
             // If the output26State is off, it displays the ON button       
             if (relay1State=="off") {
               client.println("<p><a href=\"/26/on\"><button class=\"button\">ON</button></a></p>");
             } else {
+            
+            
               client.println("<p><a href=\"/26/off\"><button class=\"button button2\">OFF</button></a></p>");
             } 
                
